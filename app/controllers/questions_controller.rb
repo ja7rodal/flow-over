@@ -18,9 +18,22 @@ class QuestionsController < ApplicationController
   end
 
 
-    def show
-      @question = Question.find(params[:id])
+  def show
+    @question = Question.find(params[:id])
+  end
+
+  def edit
+    @question = Question.find(params[:id])
+  end
+
+  def update
+    @question = Question.find(params[:id])
+    if @question.update(question_params)
+      redirect_to root_path, notice: "Pregunta actualizada correctamente"
+    else
+      render :edit
     end
+  end
 
 
   private
