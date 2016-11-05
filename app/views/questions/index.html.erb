@@ -2,4 +2,8 @@
 <% @question.each do |question| %>
   <h2><%= question.title  %></h2>
   <p><%= question.description %></p>
+
+  <div class="">
+    <%= link_to "Preguntar", new_question_path ,class:"" %>
+  </div>
 <% end %>

@@ -11,7 +11,9 @@ class QuestionsController < ApplicationController
   def create
     @question = Question.new(question_params)
     if @question.save
-      redirect_to root_path
+      redirect_to root_path, notice: "Pregunta publicada con exito"
+    else
+      render :new
     end
   end
 
