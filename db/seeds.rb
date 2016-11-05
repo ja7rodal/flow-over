@@ -5,3 +5,9 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+questions = Question.create([{title: 'Question 1', description: 'Primeros del CRUD, index,show,create?'},
+  {title: 'tal bootstrap', description: 'la gem, scss y el javascript?'},
+  {title: 'finish scaff', description: 'update and delete'},
+  {title: 'Announcents -alert ', description: 'notice'}
+  ])
