@@ -1,0 +1,14 @@
+<h2>Nueva Pregunta</h2>
+<%= form_for @question do |f|%>
+  <div class="">
+      <%= f.text_field :title, class: "", placeholder: "Titulo" %>
+  </div>
+
+  <div class="">
+      <%= f.text_area :description, class:"", placeholder: "Pregunta...", size: "60x12" %>
+  </div>
+
+  <div class="">
+      <%= f.submit "Publicar Pregunta", class: "" %>
+  </div>
+<% end %>
