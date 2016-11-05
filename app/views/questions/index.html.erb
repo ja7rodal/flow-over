@@ -7,11 +7,13 @@
       <h2><%= question.title  %></h2>
       <p><%= question.description %></p>
       <p><%= link_to "Edit", edit_question_path(question) %></p>
+      <p><%= link_to "Eliminar", question, method: :delete,data: { confirm: "¿Estás seguro?" } %></p>
+
+      <% end %>
 
       <div class="">
         <%= link_to "Preguntar", new_question_path ,class:"" %>
       </div>
-      <% end %>
     </div>
   </div>
 </div>
