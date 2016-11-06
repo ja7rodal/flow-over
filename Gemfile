@@ -1,5 +1,13 @@
 source 'https://rubygems.org'
 
+# i18n
+gem 'rails-i18n'
+
+# devise
+gem 'devise'
+gem 'twitter-bootstrap-rails'
+gem 'devise-bootstrap-views'
+
 # bootstrap
 gem 'bootstrap-sass', '~> 3.3.6'
 
