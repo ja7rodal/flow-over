@@ -1,28 +1,29 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>FlowOverStack</title>
-    <%= csrf_meta_tags %>
+<head>
+  <title>FlowOverStack</title>
+  <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
 
-  <body>
+<body>
+  <%= link_to "logout", destroy_user_session_path, method: :delete %>
+  <% if flash[:notice] %>
+  <div class="alert alert-info fade in">
+    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+    <%= flash[:notice]%>
+  </div>
+  <% end %>
 
-    <% if flash[:notice] %>
-      <div class="alert alert-info">
-        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-        <p class="notice"><%= flash[:notice]%></p>
-      </div>
-    <% end %>
+  <% if flash[:alert] %>
+  <div class="alert alert-danger fade in">
+    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+    <%= flash[:alert]%>
+  </div>
 
-    <% if flash[:alert] %>
-      <div class="alert alert-danger">
-        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-        <p class="alert"><%= flash[:alert]%></p>
-      </div>
     <% end %>
     <%= yield %>
   </body>
-</html>
+  </html>
