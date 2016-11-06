@@ -4,6 +4,7 @@ es:
       user:
         not_found_in_database: "Tu email y/o contraseña son inválidas. Intenta nuevamente."
         invalid: "Tu email y/o contraseña son inválidas. Intenta nuevamente."
+        unauthenticated: "Usuario sin autenticar"
 
     confirmations:
       new:

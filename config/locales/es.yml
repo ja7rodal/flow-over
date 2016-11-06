@@ -115,7 +115,7 @@ es:
   errors:
     format: "%{attribute} %{message}"
     messages:
-      not_saved: "No es posible guardar"  
+      not_saved: "No es posible guardar"
       accepted: debe ser aceptado
       blank: no puede estar en blanco
       present: debe estar en blanco

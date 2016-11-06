@@ -5,7 +5,7 @@
       <h1>Questions</h1>
       <% @question.each do |question| %>
       <h2><%= link_to question.title, question_path(question)  %></h2>
-      <p><%= question.description.first(250) %></p>
+      <p><%= "Pregunta" %></p>
       <p><%= link_to "Edit", edit_question_path(question) %>
       <%= link_to "Eliminar", question, method: :delete,data: { confirm: "¿Estás seguro?" } %></p>
 
