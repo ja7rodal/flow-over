@@ -2,6 +2,9 @@ source 'https://rubygems.org'
 
 # devise
 gem 'devise'
+gem 'twitter-bootstrap-rails'
+gem 'devise-bootstrap-views'
+
 # bootstrap
 gem 'bootstrap-sass', '~> 3.3.6'
 
