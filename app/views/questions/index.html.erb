@@ -4,6 +4,7 @@
 
       <h1>Questions</h1>
       <% @question.each do |question| %>
+<<<<<<< HEAD
         <h2><%= link_to question.title, question_path(question)  %></h2>
         <p><%= "desc" %></p>
           <% if user_signed_in? && question.user == current_user %>
@@ -12,6 +13,13 @@
               <%= link_to "<span class='glyphicon glyphicon-trash'></span>".html_safe, question, method: :delete, data: { confirm: "¿Estás seguro de eliminar este questiono?" } %>
             </div>
           <% end %>
+=======
+      <h2><%= link_to question.title, question_path(question)  %></h2>
+      <p><%= "Pregunta" %></p>
+      <p><%= link_to "Edit", edit_question_path(question) %>
+      <%= link_to "Eliminar", question, method: :delete,data: { confirm: "¿Estás seguro?" } %></p>
+
+>>>>>>> master
       <% end %>
 
         <div class="">
