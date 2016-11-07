@@ -13,4 +13,9 @@
 class Question < ApplicationRecord
   belongs_to :user
   has_many :comments
+  has_many :voqtes
+
+  def voqted_by?(user)
+    voqtes.exists?(user: user)
+  end
 end

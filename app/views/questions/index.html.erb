@@ -8,11 +8,25 @@
     <div class="row">
       <hr>
     <div class="col-xs-1">
-      <p>Votos</p>
+      <p class="text-center">
+      <%if user_signed_in? %>
+        <% if question.voqted_by? current_user %>
+          <%= link_to question_voqte_path(question), method: :delete, clase:"" do %>
+            <span class="caret"></span>
+          <% end %>
+        <% else %>
+          <%= link_to question_voqte_path(question), method: :post, class: "" do %>
+            <span class="dropup"><span class="caret"></span></span>
+
+          <% end %>
+        <% end %>
+      <% end %>
+      <%= question.voqtes.count %></p>
+      <p class="text-center">Votos</p>
     </div>
     <div class="col-xs-1">
       <p class="text-center"><%= question.comments.count %></p>
-      <p>Respuestas</p>
+      <p class="text-center">Respuestas</p>
     </div>
     <div class="col-xs-10">
       <div><%= link_to question.title, question_path(question), class:"Pregunta"  %></div>

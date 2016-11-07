@@ -1,34 +1,48 @@
 <div class="container">
   <div class="row">
-    <div class="col-xs-10 col-xs-offset-1">
-
+    <div class="col-xs-12">
       <h1><%= @question.title %></h1>
-      <p>
-        <%= @question.description%>
-      </p>
-
-      <h2>Respuestas</h2>
-      <% @question.comments.each do |comment| %>
-      <div class="panel panel-default">
-        <header class="panel-heading"><%= comment.user.email %>
-        </header>
-        <div class="panel-body"><%= comment.body %></div>
-      </div>
-      <% end %>
-
-      <% if signed_in? %>
-        <%= form_for [@question, @question.comments.build] do |f| %>
-          <div class="form-group">
-            <%= f.text_area :body, class: "form-control", placeholder: "Agregar comentario" %>
-          </div>
-
-          <div class="actions text-right">
-            <%= f.submit "Comentar", class: "btn btn-primary" %>
-          </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-1">
+      <p class="text-center">
+      <%if user_signed_in? %>
+        <% if @question.voqted_by? current_user %>
+          <%= link_to question_voqte_path(@question), method: :delete, clase:"" do %>
+            <span class="caret"></span>
+          <% end %>
+        <% else %>
+          <%= link_to question_voqte_path(@question), method: :post, class: "" do %>
+            <span class="dropup"><span class="caret"></span></span>
+          <% end %>
         <% end %>
       <% end %>
+      <%= @question.voqtes.count %></p>
+    </div>
+    <div class="col-xs-10">
 
-
+      <p><%= @question.description%></p>
+        <% @question.comments.each do |comment| %>
+          <div class="panel panel-default">
+            <header class="panel-heading"><%= comment.user.email %></header>
+            <div class="panel-body"><%= comment.body %></div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  <div class="row">
+    <div class="col-xs-10 col-xs-offset-1">
+      <% if signed_in? %>
+          <%= form_for [@question, @question.comments.build] do |f| %>
+            <div class="form-group">
+              <%= f.text_area :body, class: "form-control", placeholder: "Agregar comentario" %>
+            </div>
+            <div class="actions text-right">
+              <%= f.submit "Comentar", class: "btn btn-primary" %>
+            </div>
+          <% end %>
+        <% end %>
     </div>
   </div>
 </div>
