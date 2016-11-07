@@ -2,6 +2,7 @@
   <div class="row">
     <div class="col-xs-12">
       <h1><%= @question.title %></h1>
+<<<<<<< HEAD
     </div>
   </div>
   <div class="row">
@@ -17,6 +18,19 @@
             <span class="dropup"><span class="caret"></span></span>
           <% end %>
         <% end %>
+=======
+      <p>
+        <%= @question.description%>
+      </p>
+
+      <h2>Respuestas</h2>
+      <% @question.comments.each do |comment| %>
+      <div class="panel panel-default">
+        <header class="panel-heading"><%= comment.user.email %> <%= comment.created_at%> 
+        </header>
+        <div class="panel-body"><%= comment.body %></div>
+      </div>
+>>>>>>> master
       <% end %>
       <%= @question.voqtes.count %></p>
     </div>
