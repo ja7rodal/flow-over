@@ -1,30 +1,30 @@
 <div class="container">
   <div class="row">
-    <div class="col-xs-10 col-xs-offset-1">
-
-      <h1>Questions</h1>
-      <% @question.each do |question| %>
-<<<<<<< HEAD
-        <h2><%= link_to question.title, question_path(question)  %></h2>
-        <p><%= "desc" %></p>
-          <% if user_signed_in? && question.user == current_user %>
-            <div class="actions text-rigth">
-              <%= link_to "<span class='glyphicon glyphicon-pencil'></span>".html_safe, edit_question_path(question) %>
-              <%= link_to "<span class='glyphicon glyphicon-trash'></span>".html_safe, question, method: :delete, data: { confirm: "¿Estás seguro de eliminar este questiono?" } %>
-            </div>
-          <% end %>
-=======
-      <h2><%= link_to question.title, question_path(question)  %></h2>
-      <p><%= "Pregunta" %></p>
-      <p><%= link_to "Edit", edit_question_path(question) %>
-      <%= link_to "Eliminar", question, method: :delete,data: { confirm: "¿Estás seguro?" } %></p>
-
->>>>>>> master
-      <% end %>
-
-        <div class="">
-          <%= link_to "Preguntar", new_question_path ,class:"" %>
-        </div>
-      </div>
+    <h1>Questions</h1>
+    <div class="">
+      <%= link_to "Preguntar", new_question_path ,class:"" %>
     </div>
+    <% @question.each do |question| %>
+    <div class="row">
+      <hr>
+    <div class="col-xs-1">
+      <p>Votos</p>
+    </div>
+    <div class="col-xs-1">
+      <p class="text-center"><%= question.comments.count %></p>
+      <p>Respuestas</p>
+    </div>
+    <div class="col-xs-10">
+      <div><%= link_to question.title, question_path(question), class:"Pregunta"  %></div>
+      <p>Preguntó <%= question.user.email %> hace <%= question.created_at  %></p>
+      <% if user_signed_in? && question.user == current_user %>
+      <div class="actions text-rigth">
+        <%= link_to "<span class='glyphicon glyphicon-pencil'></span>".html_safe, edit_question_path(question) %>
+        <%= link_to "<span class='glyphicon glyphicon-trash'></span>".html_safe, question, method: :delete, data: { confirm: "¿Estás seguro de eliminar este questiono?" } %>
+      </div>
+      <% end %>
+      </div>
+    </div><!--col-10  -->
+    <% end %>
   </div>
+</div>

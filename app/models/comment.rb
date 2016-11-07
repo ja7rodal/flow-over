@@ -1,16 +1,16 @@
 # == Schema Information
 #
-# Table name: questions
+# Table name: comments
 #
 #  id          :integer          not null, primary key
-#  title       :string
-#  description :string
+#  body        :text
+#  question_id :integer
+#  user_id     :integer
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
-#  user_id     :integer
 #
 
-class Question < ApplicationRecord
+class Comment < ApplicationRecord
+  belongs_to :question
   belongs_to :user
-  has_many :comments
 end
