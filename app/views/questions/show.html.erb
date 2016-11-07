@@ -10,7 +10,7 @@
       <h2>Respuestas</h2>
       <% @question.comments.each do |comment| %>
       <div class="panel panel-default">
-        <header class="panel-heading"><%= comment.user.email %>
+        <header class="panel-heading"><%= comment.user.email %> <%= comment.created_at%> 
         </header>
         <div class="panel-body"><%= comment.body %></div>
       </div>
