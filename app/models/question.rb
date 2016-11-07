@@ -13,14 +13,14 @@
 class Question < ApplicationRecord
   belongs_to :user
   has_many :comments
-<<<<<<< HEAD
+
   has_many :voqtes
 
   def voqted_by?(user)
     voqtes.exists?(user: user)
   end
-=======
+
   validates :title, presence: true
   validates :description, presence: true
->>>>>>> master
+
 end
